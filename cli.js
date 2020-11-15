@@ -1,4 +1,5 @@
 const program = require('commander');
+const api = require('./index.js')
 
 program
     .option('-x, --xxx', 'this is a test')
@@ -6,9 +7,9 @@ program
     .command('add')
     .description('add a task')
     .action((...args) => {
-        let trueArgs = args[1]
+        let trueArgs = args[1] || []
         const words = trueArgs.join(' ')
-        console.log(words)
+        api.add(words)
     });
 
 program
